@@ -2,9 +2,9 @@
 
 Usage in javascript file
 ```
-function get_transcript() {
+function get_transcript(video_ID) {
     var joke = "";
-    return fetch("https://yt-transcript-api.herokuapp.com/?video=aKVvdgfbmWw", {
+    return fetch("https://yt-transcript-api.herokuapp.com/?video="+video_ID, {
         headers: {
             Accept: "application/json"
         },
@@ -18,5 +18,5 @@ function get_transcript() {
 
 }
 
-get_transcript()
+get_transcript('aKVvdgfbmWw')
 ```
