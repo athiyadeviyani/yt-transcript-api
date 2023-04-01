@@ -33,8 +33,11 @@ def respond():
     else:
         response["MESSAGE"] = get_transcript(video_id)
 
+    response = jsonify(response)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+
     # Return the response in json format
-    return jsonify(response).headers.add('Access-Control-Allow-Origin', '*')
+    return response
 
 # @app.route('/getmsg/', methods=['GET'])
 # def respond():
