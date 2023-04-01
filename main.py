@@ -1,4 +1,9 @@
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 from youtube_transcript_api import YouTubeTranscriptApi
+
+app = Flask(__name__)
+CORS(app)
 
 def get_transcript(video_id):  
     transcript = YouTubeTranscriptApi.get_transcript(video_id)
@@ -11,11 +16,6 @@ def get_transcript(video_id):
 
 # transcript = get_transcript('aKVvdgfbmWw')
 # print(transcript)
-
-
-from flask import Flask, request, jsonify
-app = Flask(__name__)
-
 
 @app.route('/', methods=['GET'])
 def respond():
